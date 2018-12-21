@@ -1,0 +1,2 @@
+module CreateUserFoodsHelper
+end
