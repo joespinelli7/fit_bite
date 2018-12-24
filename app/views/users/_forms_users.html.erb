@@ -1,0 +1,11 @@
+<%=form_for(@user) do |f|%>
+<div><%=f.label :name%>
+<%=f.text_field :name %></div><br>
+<div><%=f.label :gender %>
+<%=f.select :gender, [["female","f"],["male","m"]] %></div><br>
+<div>
+  <%=f.label "Privacy Setting" %>
+  <%=f.select :user_setting, [["Public",true],["Private",false]] %>
+</div><br>
+<div><%=f.submit%></div>
+<%end%>
