@@ -1,0 +1,4 @@
+<h1><%=@activity.name%></h1>
+<div><%="Burns #{@activity.calories_burned} Calories/hour"%></div><br>
+
+<div><%= link_to "Delete", @activity, method: :delete, data: { confirm: "Are you sure?" } %></div>
