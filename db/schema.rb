@@ -34,8 +34,15 @@ ActiveRecord::Schema.define(version: 2018_12_21_201827) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.float "height"
+    t.float "weight"
     t.string "gender"
+    t.text "username"
+    t.text "password"
+    t.boolean "user_setting"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
