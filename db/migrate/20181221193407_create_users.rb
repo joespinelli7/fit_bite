@@ -7,8 +7,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.float :height
       t.float :weight
       t.string :gender
-      t.text :email
-      t.text :password
+      t.string :email
+      t.string :password
+      t.string :password_digest
       t.boolean :user_setting
 
       t.timestamps
