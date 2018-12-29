@@ -47,11 +47,12 @@
 			<%=f.select :gender, [["Female","f"],["Male","m"]], {}, {:class => 'form-control'} %>
 		</div>
 		<div class="col-md-3"></div>
+
 		<div class="col-md-3">
 	  		<label>Privacy Setting</label>
 	   		 <%=f.select :user_setting, [["Public",true],["Private",false]], {}, {:class => 'form-control'} %>
 	   	</div>
-	</div>
+	</div><br>
 
 	<div>
 		<%=f.submit "Create Profile", class: "btn btn-primary" %>		
