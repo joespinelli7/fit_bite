@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_12_21_201827) do
     t.float "height"
     t.float "weight"
     t.string "gender"
-    t.text "username"
+    t.text "email"
     t.text "password"
     t.boolean "user_setting"
     t.datetime "created_at", null: false

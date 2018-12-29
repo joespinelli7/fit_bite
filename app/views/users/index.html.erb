@@ -1,6 +1,3 @@
-<%@users.each do |user|%>
-<div>
-  <%if user.user_setting%>
-    <%=link_to user.name, user_path(user)%><br>
-  <%end%></div>
-<%end%>
+<%= link_to "Sign up", new_user_path %><br>
+<%= link_to "Log in", login_path %>
+
