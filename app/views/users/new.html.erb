@@ -1,3 +1,42 @@
+<% provide(:title, 'Sign up') %>
 <h1>Sign Up</h1>
 
-<%= render partial: "forms_users", locals: { submit_text: 'Create User' } %>
+<%=form_for(@user, url: signup_path) do |f|%>
+	<%= render 'shared/error_messages' %>
+	<div>First Name :
+		<%=f.text_field :first_name,  class: 'form-control'  %>
+		Last Name :
+		<%=f.text_field :last_name,  class: 'form-control'  %>	
+	</div><br>
+
+	<div>
+		Age : 
+		<%=f.text_field :age,  class: 'form-control'  %>
+		Height :
+		<%=f.text_field :height,  class: 'form-control'  %> in.
+		Weight :
+		<%=f.text_field :weight,  class: 'form-control'  %> lbs.
+	</div><br>
+
+	<div>
+		Username :
+		<%=f.text_field :email,  class: 'form-control'  %>
+		Password :
+		<%=f.text_field :password,  class: 'form-control'  %>
+	</div><br>
+
+	<div>
+		Gender :
+		<%=f.select :gender, [["female","f"],["male","m"]] %>
+	
+	  	Privacy Setting :
+	    <%=f.select :user_setting, [["Public",true],["Private",false]] %>
+	</div><br>
+
+	<div>
+		<%=f.submit "Create Profile", class: "btn btn-primary" %>		
+	</div>
+	
+<%end%>
+
+

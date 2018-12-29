@@ -17,8 +17,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to user_path(@user)
+    if @user.save
+      flash[:success] = "Welcome to FitBite!"
+      redirect_to user_path(@user)
+    else
+      render :new
+    end
   end
 
   def update

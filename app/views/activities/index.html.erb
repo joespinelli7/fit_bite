@@ -1,3 +1,11 @@
-<%@activities.each do |activity|%>
-<div><%=link_to activity.name, activity_path(activity)%></div><br>
-<%end%>
+<h1><%=@user.name%></h1>
+	<%@user.foods.each do |food|%>
+	  	<%=link_to food.name, food_path(food)%>
+	  	<%=": #{food.servings * food.calories} Calories"%><br>
+	<%end%><br>
+
+	<%if @user.gender == "F"%>
+		<%= "Daily Goal: #{2000} Calories"%>
+	<%else%>
+		<%= "Daily Goal: #{3000}"%>
+	<%end%>
