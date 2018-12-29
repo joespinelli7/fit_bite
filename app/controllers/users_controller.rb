@@ -11,10 +11,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit
-    @user = User.find_by(params[:id])
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -26,10 +22,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
     @user = User.find(params[:id])
-    @user = User.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update_attributes(user_params)
+      # Handle a successful update.
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def destroy

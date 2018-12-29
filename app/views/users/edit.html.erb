@@ -20,11 +20,11 @@
 			<%=f.text_field :age,  class: 'form-control', placeholder: 'Years'  %>
 		</div>
 		<div class="col-md-4">
-			<label>Height</label>
+			<label>Height (inches)</label>
 			<%=f.text_field :height,  class: 'form-control', placeholder: 'Inches'  %>
 		</div>	
 		<div class="col-md-4">
-			<label>Weight</label>
+			<label>Weight (lbs)</label>
 			<%=f.text_field :weight,  class: 'form-control', placeholder: 'Lbs'  %>
 		</div>
 	</div>
@@ -55,7 +55,7 @@
 	</div><br>
 
 	<div>
-		<%=f.submit "Create Profile", class: "btn btn-primary" %>		
+		<%=f.submit "Save Changes", class: "btn btn-primary" %>		
 	</div>
 	
 <%end%>
