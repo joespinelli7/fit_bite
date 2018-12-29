@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :user_foods
   has_many :foods, through: :user_foods
-  has_secure_password validations: false
+  has_secure_password 
 
   validates :first_name, length: { minimum: 2 }
   validates :last_name, length: { minimum: 2 }
