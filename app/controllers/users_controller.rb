@@ -3,7 +3,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-
   def show
     @user = User.find(params[:id])
   end
@@ -26,7 +25,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to FitBite!"
       redirect_to user_path(@user)
     else
       render :new
@@ -59,7 +57,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :height, :weight,
-      :gender, :age, :email, :password, :user_setting, :food_id,:food_attributes[:name,:calories])
+      :gender, :age, :email, :password, :user_setting)
   end
 #update user params to be custom for different methods
 end

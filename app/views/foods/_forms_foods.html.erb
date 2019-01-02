@@ -1,7 +1,9 @@
-<%=form_for(@food) do |f|%>
-<div><%=f.label :name%>
-<%=f.text_field :name %></div><br>
-<div><%=f.label :calories %>
-<%=f.number_field :calories%></div><br>
-<div><%=f.submit%></div>
+<%=form_for(@user) do |f|%>
+	
+	<%= f.fields_for :foods, user.foods.build do |foods_fields| %>
+    <%= foods_fields.text_field :name %>
+    <%= foods_fields.text_field :calories %>
+  <% end %>
+
+	<div><%=f.submit%></div>
 <%end%>
