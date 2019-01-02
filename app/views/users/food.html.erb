@@ -1,11 +1,11 @@
 
 <%=form_for(@user, url:"/users/#{@user.id}/food") do |f|%>
-	<%=f.label "Create new food"%>
-		<%= f.fields_for :user_foods do |food| %>
-		    <div><%= food.label :name %>
-		    <%= food.text_field :name %></div><br>
-		    <div>  <%= food.label :calories %>
-		    <%= food.number_field :calories %></div><br>
-		    <div><%=f.submit "add food"%></div>
-	 	<% end %>
+<%=f.label "Create new food"%>
+<%= f.fields_for :foods, @user.foods.build do |food| %>
+      <div><%= food.label :name %>
+    <%= food.text_field :name %></div><br>
+    <div>  <%= food.label :calories %>
+    <%= food.number_field :calories %></div><br>
+ <% end %>
+ <div><%=f.submit "add food"%></div>
 <%end%>

@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :user_foods
   has_many :foods, through: :user_foods
   accepts_nested_attributes_for :foods
+  
   before_save { self.email = email.downcase }
 
   validates :first_name, length: { minimum: 2 }

@@ -11,8 +11,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def profile
+     @user = User.find(params[:id])
+  end
+
   def new
     @user = User.new
+    @user.foods.build
   end
 
   def create
@@ -27,11 +32,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @user.foods.build
   end
 
   def add_food
     @user = User.find(params[:id])
-    @user.update_attributes(user_params)
+    @user.update(user_params)
     redirect_to user_path(@user)
   end
 
@@ -55,8 +61,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :height, :weight, 
-      :gender, :age, :email, :password, :user_setting, food_ids:[],foods_attributes:[:name,:calories])
+    params.require(:user).permit(:first_name, :last_name, :height, :weight,
+      :gender, :age, :email, :password, :user_setting, food_ids:[],
+      foods_attributes:[:name,:calories])
   end
 #update user params to be custom for different methods
 end
