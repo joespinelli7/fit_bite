@@ -11,12 +11,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def add_food
-    @user = User.find(params[:id])
-    @user.update_attributes(user_params)
-    redirect_to user_path(@user)
-  end
-
   def new
     @user = User.new
   end
@@ -34,6 +28,14 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+
+  def add_food
+    byebug
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
+    redirect_to user_path(@user)
+  end
+
 
   def update
     @user = User.find(params[:id])
@@ -57,7 +59,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :height, :weight,
+<<<<<<< HEAD
       :gender, :age, :email, :password, :user_setting)
+=======
+      :gender, :age, :email, :password, :user_setting, food_ids:[],foods_attributes:[:name,:calories])
+>>>>>>> fb6abde64a0c3041c7f0c47e42c89bb000b86b02
   end
 #update user params to be custom for different methods
 end

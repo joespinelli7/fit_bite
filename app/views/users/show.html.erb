@@ -1,7 +1,11 @@
 <h1><%=@user.full_name%></h1>
 	<%@user.foods.each do |food|%>
+<<<<<<< HEAD
 	  	<div><%=link_to food.name, food_path(food)%></div>
 	  	
+=======
+	  	<%=link_to food.name, food_path(food)%>
+>>>>>>> fb6abde64a0c3041c7f0c47e42c89bb000b86b02
 	<%end%><br>
 
 	<%if @user.gender == "F"%>
