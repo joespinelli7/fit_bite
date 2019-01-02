@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  
+
   root to: 'users#index'
   resources :activities
   resources :foods
-  resources :users
+  resources :users, only: [:index,:show,:edit,:update,:destroy]
   	get    '/signup',  to: 'users#new'
   	post   '/signup',  to: 'users#create'
   	get    '/login',   to: 'sessions#new'
   	post   '/login',   to: 'sessions#create'
   	delete '/logout',  to: 'sessions#destroy'
     get '/profile',  to: 'pages#profile', as: 'profile'
-
+    get '/users/:id/food', to: 'users#food'
+    post '/users/food', to: 'users#add_food'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
