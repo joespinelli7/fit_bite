@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    #PROBLEM WITH LOGOUT -NO ROUTE MATCH "/logout"
     log_out
     redirect_to users_path
   end

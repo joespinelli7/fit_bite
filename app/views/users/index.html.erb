@@ -1,2 +1,7 @@
-
-hello 
+<%@users.each do |user|%>
+<div>
+  <%if user.user_setting%>
+    <%=link_to "#{user.first_name} #{user.last_name}" , user_path(user)%><br>
+  <%end%>
+</div>
+<%end%>
