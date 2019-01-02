@@ -30,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   def add_food
-    byebug
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
     redirect_to user_path(@user)
@@ -48,8 +47,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   def destroy
     @user = User.find(params[:id]).destroy
     redirect_to users_path
@@ -58,12 +55,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :height, :weight,
-<<<<<<< HEAD
-      :gender, :age, :email, :password, :user_setting)
-=======
+    params.require(:user).permit(:first_name, :last_name, :height, :weight, 
       :gender, :age, :email, :password, :user_setting, food_ids:[],foods_attributes:[:name,:calories])
->>>>>>> fb6abde64a0c3041c7f0c47e42c89bb000b86b02
   end
 #update user params to be custom for different methods
 end
