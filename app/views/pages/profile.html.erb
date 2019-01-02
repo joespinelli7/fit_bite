@@ -4,37 +4,42 @@
 <div class="row">
 	<div class="col-md-4">
 		<label>Name</label>
-		<input class="form-control" readonly value="<%= @user.first_name %>"> 
+		<textarea class="form-control" readonly value="<%= @user.first_name %>">
+    </textarea>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-4">
 		<label>Age</label>
-		<input class="form-control" readonly value="<%= @user.age %> years">
+		<textarea class="form-control" readonly value="<%= @user.age %> years">
+    </textarea>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-4">
 		<label>Gender</label>
-		<input class="form-control"
+		<textarea class="form-control"
 			<% if @user.gender == "f"%>
 				value="<%= "Female" %>"
 			<% else %>
 				value="<%= "Male" %>"
 			<% end %>
 		readonly>
+    </textarea>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-4">
 		<label>Height</label>
-		<input class="form-control" readonly value="<%= @user.height%> inches ">
+		<textarea class="form-control" readonly value="<%= @user.height%> inches ">
+    </textarea>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-4">
 		<label>Weight</label>
-		<input class="form-control" readonly value="<%= @user.weight %> lbs ">
+		<textarea class="form-control" readonly value="<%= @user.weight %> lbs ">
+    </textarea>
 	</div>
 </div>
 
@@ -43,13 +48,15 @@
 	<div class="row">
 		<div class="col-md-4">
 			<label>Username</label>
-			<input class="form-control" readonly value="<%= @user.email %>">
+			<textarea class="form-control" readonly value="<%= @user.email %>">
+      </textarea>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-4">
 			<label>Password</label>
-			<input class="form-control" readonly value="***********">
+			<textarea class="form-control" readonly value="***********">
+      </textarea>
 		</div>
 	</div>

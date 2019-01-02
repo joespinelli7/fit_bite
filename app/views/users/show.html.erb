@@ -1,6 +1,6 @@
 <h1><%=@user.full_name%></h1>
 	<%@user.foods.each do |food|%>
-	  	<%=link_to food.name, food_path(food)%>
+	  	<div><%=link_to food.name, food_path(food)%></div>
 	<%end%><br>
 
 <div><%= @user.height%><br>
