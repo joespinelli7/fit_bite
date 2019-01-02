@@ -3,9 +3,5 @@
 <%=f.text_field :name %></div><br>
 <div><%=f.label :calories %>
 <%=f.number_field :calories%></div><br>
-<div>
-  <%=f.label :servings %>
-  <%=f.select :servings,options_for_select(1..10) %>
-</div><br>
 <div><%=f.submit%></div>
 <%end%>
