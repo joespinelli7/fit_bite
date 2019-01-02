@@ -11,11 +11,11 @@ User.destroy_all
 UserFood.destroy_all
 Activity.destroy_all
 
-protein_bar = Food.create(name: "Protein bar", calories: 300, servings: 1)
-cheese_steak = Food.create(name: "Cheese Steak", calories: 800, servings: 1)
-ice_cream = Food.create(name: "Ice Cream", calories: 500, servings: 2)
-chicken = Food.create(name: "Chicken", calories: 600, servings: 3)
-apple = Food.create(name: "Apple", calories: 100, servings: 1)
+protein_bar = Food.create(name: "Protein bar", calories: 300)
+cheese_steak = Food.create(name: "Cheese Steak", calories: 800)
+ice_cream = Food.create(name: "Ice Cream", calories: 500)
+chicken = Food.create(name: "Chicken", calories: 600)
+apple = Food.create(name: "Apple", calories: 100)
 
 ash = User.create(first_name: "Ashley",last_name: "Zaki", age: 26, height: 63.0, weight: 125, gender: "F", email: "ash057@gmail.com", password: "ash1234567")
 mandy = User.create(first_name: "Mandy",last_name: "Pilaud", age: 25, height: 75.0, weight: 118, gender: "F", email: "mandy234@gmail.com", password: "mandy154321")

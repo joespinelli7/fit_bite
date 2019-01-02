@@ -1,0 +1,15 @@
+
+<%=form_for(@user) do |f|%>
+<%=f.label "Select existing foods"%>
+<% 5.times do %>
+<div><%= f.collection_select :food_ids, Food.all, :id, :name, include_blank: true %></div><br>
+<%end%>
+<%=f.label "Create new food"%>
+<%= f.fields_for :user_foods do |food| %>
+      <div><%= food.label :name %>
+    <%= food.text_field :name %></div><br>
+    <div>  <%= food.label :calories %>
+    <%= food.number_field :calories %></div><br>    
+    <div><%=f.submit%></div>
+ <% end %>
+<%end%>
