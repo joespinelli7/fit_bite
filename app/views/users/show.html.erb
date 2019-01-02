@@ -3,8 +3,12 @@
 	  	<%=link_to food.name, food_path(food)%>
 	<%end%><br>
 
+<div><%= @user.height%><br>
+<%= @user.weight%></div>
 	<%if @user.gender == "F"%>
+		Female <br>
 		<%= "Daily Goal: #{2000} Calories"%>
 	<%else%>
+		Male <br>
 		<%= "Daily Goal: #{3000}"%>
 	<%end%>
