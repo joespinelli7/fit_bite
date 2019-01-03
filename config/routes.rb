@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_activities
   root to: 'dashboard#index'
   resources :activities
   resources :foods

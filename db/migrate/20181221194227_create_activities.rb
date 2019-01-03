@@ -4,7 +4,6 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :calories_burned
       t.integer :mins_active
-
       t.timestamps
     end
   end
