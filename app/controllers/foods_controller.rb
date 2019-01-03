@@ -1,10 +1,10 @@
 class FoodsController < ApplicationController
 
-  before_action :authorized, only: [:new, :create, :update]
+  before_action :authorized, only: [:new,:create,:edit,:update,:destroy]
 
   def index
     @foods = Food.all
-    
+
   end
 
   def show
