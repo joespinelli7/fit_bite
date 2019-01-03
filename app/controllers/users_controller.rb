@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  
+  before_action :authorized, only: [:show,:edit,:update,:destroy]
+
   def index
     @users = User.all
   end
@@ -44,7 +45,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id]).destroy
+    @user = User.find(params[:id])
+    @user.destroy
     redirect_to users_path
   end
 

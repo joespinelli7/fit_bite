@@ -25,6 +25,7 @@
 			<%end%>
 	</div>
 
+<!-- add user_food table-->
 
 	<table id="add-food-table" class="table">
 	  <thead>
@@ -37,20 +38,19 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	  	<%@user.foods.each do |food|%>
+	  	<%@user.user_foods.each do |user_food|%>
 	  	<tr>
-		  	<td><%= link_to food.name, food_path %></td>
-		  	<td><%= food.calories%></td>
-		  	<td>
+		  	<td><%= link_to user_food.food.name, food_path(user_food.food) %></td>
+		  	<td><%= user_food.food.calories%></td>
+				<td><i class="fas fa-pencil-alt"><%=link_to " EDIT", "/user_foods/#{user_food.id}/edit"%></i>
+				<i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_foods/#{user_food.id}/remove"%></i>
 			</td>
-			  	
 		</tr>
 		<%end%>
 	  </tbody>
 	</table>
 
-
-
+<!-- add user_factivity table-->
 	<table id="add-activity-table" class="table" style="margin-bottom: 15px;">
 	  <thead>
 	    <tr>
@@ -63,11 +63,12 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	  	<%@user.activities.each do |activity|%>
+			<%@user.user_activities.each do |user_act|%>
 	  	<tr>
-		  	<td><%= link_to activity.name, activity_path %></td>
-		  	<td><%= activity.calories_burned%></td>
-		  	<td><i class="fas fa-pencil-alt",><%= link_to "delete", user_food_delete_path %><i class="fas fa-trash-alt"></i></td>
+		  	<td><%= link_to user_act.activity.name, activity_path(user_act.activity) %></td>
+		  	<td><%= user_act.activity.calories_burned%></td>
+		  	<td><i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_activities/#{user_act.id}/remove"%></i></td>
+				<td><i class= "fas fa-pencil-alt"><%=link_to " EDIT", "/user_activities/#{user_act.id}/edit"%></i></td>
 		</tr>
 		<%end%>
 	  </tbody>

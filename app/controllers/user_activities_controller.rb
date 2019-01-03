@@ -1,6 +1,6 @@
 class UserActivitiesController < ApplicationController
 
- 
+  before_action :authorized, only: [:new, :create,:edit,:update,:remove,:destroy]
 
   def new
     @user_activity = UserActivity.new

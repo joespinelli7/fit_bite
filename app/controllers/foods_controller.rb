@@ -1,10 +1,10 @@
 class FoodsController < ApplicationController
 
-  before_action :authorized, only: [:new, :create, :update]
+  before_action :authorized, only: [:new,:create,:edit,:update,:destroy]
 
   def index
     @foods = Food.all
-    
+
   end
 
   def show
@@ -36,7 +36,6 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @food.destroy
     redirect_to foods_path
-    #make redirect to current user
   end
 
   private
