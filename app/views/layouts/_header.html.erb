@@ -10,7 +10,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <!-- <a class="nav-link" href="#">Home</a> -->
-            <li><%= link_to "Sign up", signup_path, {:class=>"nav-link"} %></li>
+            <li><%= link_to "Sign up", new_user_path, {:class=>"nav-link"} %></li>
 
           <% if logged_in? %>
             <%= link_to "Dashboard", current_user, {:class=>"nav-link"} %>
@@ -20,7 +20,7 @@
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", profile_path, {:class=>"nav-link"} %></li>
+                <li><%= link_to "Profile", profile_path(current_user), {:class=>"nav-link"} %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user), {:class=>"nav-link"} %></li>
                 <li class="divider"></li>
                 <li>

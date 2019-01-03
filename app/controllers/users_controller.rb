@@ -3,11 +3,14 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-
   def show
     @user = User.find(params[:id])
   end
 
+
+  def profile
+     @user = User.find(params[:id])
+  end
 
   def new
     @user = User.new
@@ -17,7 +20,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to FitBite!"
       redirect_to user_path(@user)
     else
       render :new

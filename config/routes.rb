@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'users#index'
+  root to: 'dashboard#index'
   resources :activities
   resources :foods
   resources :user_foods, only: [:new,:create]
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   	get    '/login',   to: 'sessions#new'
   	post   '/login',   to: 'sessions#create'
   	delete '/logout',  to: 'sessions#destroy'
-    get '/profile',  to: 'pages#profile', as: 'profile'
+    get    '/users/:id/profile',  to: 'users#profile', as: 'profile'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
