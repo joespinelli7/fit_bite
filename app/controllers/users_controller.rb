@@ -81,18 +81,21 @@ class UsersController < ApplicationController
     @total_food_calories = @total_food_calories.inject(:+)
   end
 
-  def total_calories_burned
-    #Add per/minute stuff
-    #switch in user show page to reflect calories burned per minutes, and servings.
-    @total_calories_burned =  @user.user_activities.collect do |user_act|
-      user_act.activity.calories_burned
-    end
-    @total_calories_burned = @total_calories_burned.inject(:+)
-  end
 
-  def total_calories
+def total_calories_burned
+  #switch in user show page to reflect calories burned per minutes, and servings.
+  @total_calories_burned =  @user.user_activities.collect do |user_act|
+    (user_act.activity.calories_burned/60) * user_act.mins_active
+  end
+end
+
+
+def total_calories
+  if !@total_cal.nil?
     @total_cal = @total_food_calories - @total_calories_burned
   end
+end
+
 
 
   def calorie_stats
