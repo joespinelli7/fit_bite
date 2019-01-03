@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'users#index'
+  root to: 'dashboard#index'
   resources :activities
   resources :foods
   get '/users/:id/food', to: 'users#food'
