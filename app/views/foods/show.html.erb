@@ -2,3 +2,4 @@
 <div><%="#{@food.calories} Calories"%></div><br>
 
 <div><%= link_to "Delete", @food, method: :delete, data: { confirm: "Are you sure?" } %></div>
+<%=link_to "Add this food", new_user_food_path%>

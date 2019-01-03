@@ -1,0 +1,10 @@
+<%=form_for(@user_food) do |f|%>
+<%=f.label "add new food"%>
+<%=f.collection_select :food_id, Food.all, :id, :name, {:prompt => true}%><br>
+<%=f.label :servings %>
+<%=f.select :servings,options_for_select(1..10) %><br>
+ <div><%=f.submit "add food"%></div>
+<%end%><br>
+
+<h4>Don't see the food you are looking for?<br>
+<%=link_to "Create food!", new_food_path%></h4>
