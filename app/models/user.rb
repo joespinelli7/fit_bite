@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :foods, through: :user_foods
   has_many :user_activities
   has_many :activities, through: :user_activities
-  accepts_nested_attributes_for :foods
 
   before_save { self.email = email.downcase }
 

@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root to: 'dashboard#index'
   resources :activities
   resources :foods
-  resources :user_foods, only: [:new,:create]
-  resources :user_activities, only: [:new,:create]
+  resources :user_foods, only: [:new,:create,:edit,:update,:destroy]
+  resources :user_activities, only: [:new,:create,:edit,:update,:destroy]
+  get '/user_foods/:id/remove', to: 'user_foods#remove'
+  get '/user_activities/:id/remove', to: 'user_activities#remove'
   resources :users
   	get    '/signup',  to: 'users#new'
   	post   '/signup',  to: 'users#create'

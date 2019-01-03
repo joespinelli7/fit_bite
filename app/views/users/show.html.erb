@@ -34,37 +34,7 @@
 	      <th scope="col">
 	      	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">New <i class="fas fa-plus"></i>
 	      	</button>
-	      	<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="Add food Label">Add new food</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			        <%=form_for(@user, url:"/users/#{@user.id}") do |f|%>
-					<%= f.fields_for :foods, @user.foods.build do |food| %>
-					<div class="modal-body">
-					      <div><%= food.label :name %>
-					    	<%= food.text_field :name %>
-					      </div>
-					      <br>
-					    <div><%= food.label :calories %>
-					    	 <%= food.number_field :calories %>
-					    </div>
-					    <br>
-					 <% end %>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <div><%=f.submit "Add food", class: "btn btn-primary" %></div>
-			      </div>
-			      <%end%>
-			    </div>
-			  </div>
-			</div>
+	      	
 	      </th>
 	    </tr>
 	  </thead>
@@ -88,37 +58,7 @@
 	      <th scope="col">
 	      	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">New <i class="fas fa-plus"></i>
 	      	</button>
-	      	<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="addActivitiesLabel">Add new activities</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			        <%=form_for(@user, url:"/users/#{@user.id}") do |f|%>
-					<%= f.fields_for :foods, @user.foods.build do |food| %>
-					<div class="modal-body">
-					      <div><%= food.label :name %>
-					    	<%= food.text_field :name %>
-					      </div>
-					      <br>
-					    <div><%= food.label :calories %>
-					    	 <%= food.number_field :calories %>
-					    </div>
-					    <br>
-					 <% end %>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <div><%=f.submit "Add food", class: "btn btn-primary" %></div>
-			      </div>
-			      <%end%>
-			    </div>
-			  </div>
-			</div>
+
 	      </th>
 	    </tr>
 	  </thead>
