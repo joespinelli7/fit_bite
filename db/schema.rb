@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_01_03_144812) do
     t.float "height"
     t.float "weight"
     t.string "gender"
+    t.string "goal"
     t.string "email"
     t.string "password"
     t.string "password_digest"
