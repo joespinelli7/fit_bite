@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :activities
   resources :foods
   resources :user_foods, only: [:new,:create]
+  resources :user_activities, only: [:new,:create]
   resources :users
   	get    '/signup',  to: 'users#new'
   	post   '/signup',  to: 'users#create'

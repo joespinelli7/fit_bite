@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2019_01_03_144812) do
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.integer "calories_burned"
-    t.integer "mins_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_01_03_144812) do
   create_table "user_activities", force: :cascade do |t|
     t.integer "user_id"
     t.integer "activity_id"
+    t.integer "mins_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
