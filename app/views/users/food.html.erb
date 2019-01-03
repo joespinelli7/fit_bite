@@ -3,9 +3,13 @@
 <%=f.label "Create new food"%>
 <%= f.fields_for :foods, @user.foods.build do |food| %>
       <div><%= food.label :name %>
-    <%= food.text_field :name %></div><br>
+    	<%= food.text_field :name %>	
+      </div>
+      <br>
     <div>  <%= food.label :calories %>
-    <%= food.number_field :calories %></div><br>
+    	<%= food.number_field :calories %>	
+    </div>
+    <br>
  <% end %>
  <div><%=f.submit "add food"%></div>
 <%end%>
