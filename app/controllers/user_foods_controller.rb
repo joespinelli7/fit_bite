@@ -1,4 +1,7 @@
 class UserFoodsController < ApplicationController
+
+  before_action :authorized, only: [:new, :create, :update]
+
   def new
     @user_food = UserFood.new
   end

@@ -32,9 +32,7 @@
 	      <th scope="col">Food Name</th>
 	      <th scope="col">Calories</th>
 	      <th scope="col">
-	      	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">New <i class="fas fa-plus"></i>
-	      	</button>
-	      	
+
 	      </th>
 	    </tr>
 	  </thead>
@@ -50,6 +48,7 @@
 	</table>
 
 
+<<<<<<< HEAD
 	<table id="add-activity-table" class="table" style="margin-bottom: 15px;">
 	  <thead>
 	    <tr>
@@ -107,3 +106,27 @@
 	  </tbody>
 	</table>
 </div>
+=======
+	<table id="add-activities-table" class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">Activity Name</th>
+		      <th scope="col">Calories Burned</th>
+		      <th scope="col">
+		      	<button type="button" class="btn btn-secondary btn-sm">New <i class="fas fa-plus"></i></button>
+
+		      </th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<%@user.activities.each do |activity|%>
+		  	<tr>
+			  	<td><%= link_to activity.name, activity_path %></td>
+			  	<td><%= activity.calories_burned%></td>
+			  	<td><i class="fas fa-pencil-alt"></i><span style="margin-right: 20px"></span><i class="fas fa-trash-alt"></i></td>
+			</tr>
+			<%end%>
+		  </tbody>
+		</table>
+	</div>
+>>>>>>> d2790432d756137c1a8e4226883428d62796a6fa

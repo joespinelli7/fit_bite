@@ -1,4 +1,7 @@
 class ActivitiesController < ApplicationController
+
+  before_action :authorized, only: [:new, :create, :update]
+
   def index
     @activities = Activity.all
   end
