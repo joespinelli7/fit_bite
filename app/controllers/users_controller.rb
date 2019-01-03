@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    daily_goal
+    goal
+    food_calories
   end
 
 
@@ -49,6 +52,36 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path
   end
+
+def daily_goal
+  if @user.gender == "F"
+    @daily_goal = 2000
+  else
+   @daily_goal = 3000
+  end
+end
+
+def goal
+  if @user.goal == "weight lose"
+    @goal = -500
+  elsif @user.goal == "weight gain"
+    @goal = 5000
+  else
+    @goal = 0
+  end
+end
+
+def food_calories
+  @total_cal = @user.foods.collect do |food|
+    food.calories
+  end
+  @total_cal = @total_cal.inject(:+)
+end
+
+def calorie_stats
+  if !@total_cal.nil?
+    "You have #{@daily_goal - @total_cal} calories remaining today"
+end
 
   private
 
