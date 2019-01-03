@@ -15,14 +15,17 @@
 		<%end%>
 		<%@total_cal = @total_cal.inject(:+)%>
 			<%="Calories eaten: #{@total_cal}"%><br>
-			<% if @total_cal <= @daily_goal%>
-				<%= "You have #{@daily_goal - @total_cal} calories remaining today"%>
-			<%else%>
-				<%= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"%>
+
+			<% if !@total_cal.nil? %>
+				<% if @total_cal <= @daily_goal%>
+					<%= "You have #{@daily_goal - @total_cal} calories remaining today"%>
+				<%else%>
+					<%= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"%>
+			<%end%>
 			<%end%>
 	</div>
 
-	
+
 	<table id="add-food-table" class="table">
 	  <thead>
 	    <tr>
@@ -45,11 +48,11 @@
 					<%= f.fields_for :foods, @user.foods.build do |food| %>
 					<div class="modal-body">
 					      <div><%= food.label :name %>
-					    	<%= food.text_field :name %>	
+					    	<%= food.text_field :name %>
 					      </div>
 					      <br>
 					    <div><%= food.label :calories %>
-					    	 <%= food.number_field :calories %>	
+					    	 <%= food.number_field :calories %>
 					    </div>
 					    <br>
 					 <% end %>
@@ -76,8 +79,3 @@
 	  </tbody>
 	</table>
 </div>
-	
-	
-
-
-
