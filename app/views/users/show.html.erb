@@ -7,6 +7,46 @@
 		<%end%>
 	</div>
 
+	<%@user.foods.each do |food|%>
+		  	<%=link_to food.name, food_path(food)%><br>
+	<%end%>
+
+	<%=link_to "Add Food", new_user_food_path%><br>
+
+	<div><%= @user.height%><br>
+	<%= @user.weight%></div>
+
+		<%if @user.gender == "F"%>
+		<% @daily_goal = 2000%>
+			Female <br>
+		<%= "Daily Goal: #{@daily_goal} Calories"%>
+
+		<%else%>
+			Male <br>
+			<% @daily_goal = 3000%>
+			<%= "Daily Goal: #{@daily_goal}"%>
+		<%end%>
+		<div>
+
+		</div>
+	<%@total_cal = @user.foods.collect do |food|%>
+	<%food.calories %>
+	<%end%>
+
+	<%@total_cal = @total_cal.inject(:+)%>
+
+	<%="Calories eaten: #{@total_cal}"%><br>
+	<% if @total_cal <= @daily_goal%>
+	<%= "You have #{@daily_goal - @total_cal} calories remaining today"%>
+
+	<%else%>
+	<%= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"%>
+	<%end%>
+	</div>
+
+
+
+
 
 <table class="table">
   <thead>
