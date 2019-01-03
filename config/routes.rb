@@ -4,15 +4,12 @@ Rails.application.routes.draw do
   root to: 'dashboard#index'
   resources :activities
   resources :foods
-
-  resources :user_foods, only: [:new,:create,:edit,:update,:destroy]
-  resources :user_activities, only: [:new,:create,:edit,:update,:destroy]
-  get '/user_foods/:id/remove', to: 'user_foods#remove'
+  resources :user_foods, only: [:new,:create,:edit,:update]
+    delete '/user_foods/:id', to: 'user_foods#destroy', as: 'delete_food'
+    get '/user_foods/:id/remove', to: 'user_foods#remove'
+  resources :user_activities, only: [:create,:edit,:update,:destroy]
+  get '/user_activities/new', to: 'user_activities#new', as: 'new_user_active'
   get '/user_activities/:id/remove', to: 'user_activities#remove'
-
-  resources :user_foods, only: [:new,:create, :edit, :update, :delete]
-  resources :user_activities, only: [:new,:create, :edit, :update, :delete]
-
   resources :users
   	get    '/signup',  to: 'users#new'
   	post   '/signup',  to: 'users#create'

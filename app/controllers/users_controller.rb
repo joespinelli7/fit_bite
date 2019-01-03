@@ -78,10 +78,6 @@ def food_calories
   @total_cal = @total_cal.inject(:+)
 end
 
-def calorie_stats
-  if !@total_cal.nil?
-    "You have #{@daily_goal - @total_cal} calories remaining today"
-end
 
   private
 

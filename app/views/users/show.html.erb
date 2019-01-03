@@ -1,4 +1,4 @@
-<div style="max-width:800px; margin: 0 auto;">
+<div style="max-width:1000px; margin: 0 auto;">
 	<h1><%=@user.full_name%></h1>
 	<div style="margin-bottom: 15px;">
 			<%= "Daily Goal: #{@daily_goal + @goal} Calories"%>
@@ -13,7 +13,9 @@
 			   <%= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"%>
 			<%end%>
 			<%end%>
-			</div>
+	</div>
+
+<!-- add user_food table-->
 
 	<table id="add-food-table" class="table">
 	  <thead>
@@ -21,7 +23,7 @@
 	      <th scope="col">Food Name</th>
 	      <th scope="col">Calories</th>
 	      <th scope="col">
-
+	      	<%= link_to raw("<i class=\"icon-search icon-white\">Add </i>"), new_user_food_path, class: "btn btn-success", method: :get %>
 	      </th>
 	    </tr>
 	  </thead>
@@ -30,35 +32,22 @@
 	  	<tr>
 		  	<td><%= link_to user_food.food.name, food_path(user_food.food) %></td>
 		  	<td><%= user_food.food.calories%></td>
-				<td><i class="fas fa-pencil-alt"><%=link_to " EDIT", "/user_foods/#{user_food.id}/edit"%></i></td>
-				<td><i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_foods/#{user_food.id}/remove"%></i></td>
+				<td><i class="fas fa-pencil-alt"><%=link_to " EDIT", "/user_foods/#{user_food.id}/edit"%></i>
+				<i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_foods/#{user_food.id}/remove"%></i>
+			</td>
 		</tr>
 		<%end%>
 	  </tbody>
 	</table>
 
+<!-- add user_factivity table-->
 	<table id="add-activity-table" class="table" style="margin-bottom: 15px;">
 	  <thead>
 	    <tr>
 	      <th scope="col">Activity Name</th>
 	      <th scope="col">Calories Burned</th>
 	      <th scope="col">
-	      	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">New <i class="fas fa-plus"></i>
-	      	</button>
-
-			<div class="modal fade" id="exampleModal" tabindex="-1">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="addActivitLabel">Add new activities</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button><br>
-			      </div>
-			      </div>
-			    </div>
-			  </div>
-			</div>
+	      	<%= link_to raw("<i class=\"icon-search icon-white\">Add </i>"), new_user_active_path, class: "btn btn-success", method: :get %>
 
 	      </th>
 	    </tr>
@@ -70,7 +59,6 @@
 		  	<td><%= user_act.activity.calories_burned%></td>
 		  	<td><i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_activities/#{user_act.id}/remove"%></i></td>
 				<td><i class= "fas fa-pencil-alt"><%=link_to " EDIT", "/user_activities/#{user_act.id}/edit"%></i></td>
-
 		</tr>
 		<%end%>
 	  </tbody>
