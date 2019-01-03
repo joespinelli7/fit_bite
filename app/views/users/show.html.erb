@@ -37,11 +37,12 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	  	<%@user.foods.each do |food|%>
+	  	<%@user.user_foods.each do |user_food|%>
 	  	<tr>
-		  	<td><%= link_to food.name, food_path %></td>
-		  	<td><%= food.calories%></td>
-		  	<td><i class="fas fa-pencil-alt"></i><span style="margin-right: 20px"></span><i class="fas fa-trash-alt"></i></td>
+		  	<td><%= link_to user_food.food.name, food_path(user_food.food) %></td>
+		  	<td><%= user_food.food.calories%></td>
+				<td><i class="fas fa-pencil-alt"><%=link_to " EDIT", "/user_foods/#{user_food.id}/edit"%></i></td>
+				<td><i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_foods/#{user_food.id}/remove"%></i></td>
 		</tr>
 		<%end%>
 	  </tbody>
@@ -91,36 +92,15 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	  	<%@user.activities.each do |activity|%>
+			<%@user.user_activities.each do |user_act|%>
 	  	<tr>
-		  	<td><%= link_to activity.name, activity_path %></td>
-		  	<td><%= activity.calories_burned%></td>
-		  	<td><i class="fas fa-pencil-alt"><%= link_to "Add new food", new_user_path %></i><span style="margin-right: 20px"></span><i class="fas fa-trash-alt"><%= link_to "Delete", @activity, method: :delete, data: { confirm: "Are you sure?" } %></i></td>
+		  	<td><%= link_to user_act.activity.name, activity_path(user_act.activity) %></td>
+		  	<td><%= user_act.activity.calories_burned%></td>
+		  	<td><i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_activities/#{user_act.id}/remove"%></i></td>
+				<td><i class= "fas fa-pencil-alt"><%=link_to " EDIT", "/user_activities/#{user_act.id}/edit"%></i></td>
+
 		</tr>
 		<%end%>
 	  </tbody>
 	</table>
 </div>
-
-	<table id="add-activities-table" class="table">
-		  <thead>
-		    <tr>
-		      <th scope="col">Activity Name</th>
-		      <th scope="col">Calories Burned</th>
-		      <th scope="col">
-		      	<button type="button" class="btn btn-secondary btn-sm">New <i class="fas fa-plus"></i></button>
-
-		      </th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		  	<%@user.activities.each do |activity|%>
-		  	<tr>
-			  	<td><%= link_to activity.name, activity_path %></td>
-			  	<td><%= activity.calories_burned%></td>
-			  	<td><i class="fas fa-pencil-alt"></i><span style="margin-right: 20px"></span><i class="fas fa-trash-alt"></i></td>
-			</tr>
-			<%end%>
-		  </tbody>
-		</table>
-	</div>

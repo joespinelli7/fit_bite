@@ -1,10 +1,7 @@
 <%=form_for(@user_activity) do |f|%>
-<%=f.label "add new activity"%>
+<%=f.label "Edit activity"%>
 <%=f.collection_select :activity_id, Activity.all, :id, :name, {:prompt => true}%><br>
 <%=f.label :mins_active %>
 <%=f.select :mins_active,options_for_select(20..240) %><br>
- <div><%=f.submit "add activity"%></div>
+ <div><%=f.submit "Edit #{@user_activity.activity.name}"%></div>
 <%end%><br>
-
-<h4>Don't see the activity you are looking for?<br>
-<%=link_to "Create Activity!", new_activity_path%></h4>
