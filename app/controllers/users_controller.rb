@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     daily_goal
     goal
     food_calories
+    total_calories_burned
+    total_calories
+    calorie_stats
   end
 
 
@@ -72,10 +75,34 @@ def goal
 end
 
 def food_calories
-  @total_cal = @user.foods.collect do |food|
-    food.calories
+  @total_food_calories = @user.user_foods.collect do |user_food|
+    user_food.food.calories * user_food.servings.to_i
   end
-  @total_cal = @total_cal.inject(:+)
+  @total_food_calories = @total_food_calories.inject(:+)
+end
+
+def total_calories_burned
+  #Add per/minute stuff
+  #switch in user show page to reflect calories burned per minutes, and servings.
+  @total_calories_burned =  @user.user_activities.collect do |user_act|
+    user_act.activity.calories_burned
+  end
+  @total_calories_burned = @total_calories_burned.inject(:+)
+end
+
+def total_calories
+  @total_cal = @total_food_calories - @total_calories_burned
+end
+
+
+def calorie_stats
+  if !@total_cal.nil?
+    if @total_cal <= @daily_goal
+     @current_calories_message = "You have #{@daily_goal - @total_cal} calories remaining today"
+   else
+    @current_calories_message= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"
+   end
+ end
 end
 
 

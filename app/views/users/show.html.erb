@@ -5,14 +5,8 @@
 		<div>
 	</div>
 			<%="Calories eaten: #{@total_cal}"%><br>
-
-			 <% if !@total_cal.nil? %>
-			 <% if @total_cal <= @daily_goal%>
-			   <%= "You have #{@daily_goal - @total_cal} calories remaining today"%>
-			  <%else%>
-			   <%= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"%>
-			<%end%>
-			<%end%>
+<%="#{@total_calories_burned} calories burned today"%>
+			<div><%=@current_calories_message%></div>
 	</div>
 
 <!-- add user_food table-->
