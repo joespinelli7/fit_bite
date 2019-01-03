@@ -42,8 +42,13 @@
 	  	<tr>
 		  	<td><%= link_to user_food.food.name, food_path(user_food.food) %></td>
 		  	<td><%= user_food.food.calories%></td>
-				<td><i class="fas fa-pencil-alt"><%=link_to " EDIT", "/user_foods/#{user_food.id}/edit"%></i>
+			<td>
+				<button><%= link_to " EDIT", "/user_foods/#{user_food.id}/edit" %>
+  					<i class="fas fa-pencil-alt"></i></button> 
 				<i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_foods/#{user_food.id}/remove"%></i>
+				<i class="fas fa-pencil-alt"><%=link_to " EDIT", "/user_foods/#{user_food.id}/edit"%></i>
+				<%= button_to raw("<i class=\"fas fa-pencil-alt\">EDIT</i>"), "/user_foods/#{user_food.id}/edit", 
+          class: "btn btn-primary" %>
 			</td>
 		</tr>
 		<%end%>
