@@ -1,4 +1,4 @@
-<div style="max-width:800px; margin: 0 auto;">
+<div style="max-width:1000px; margin: 0 auto;">
 	<h1><%=@user.full_name%></h1>
 	<div style="margin-bottom: 15px;">
 			<%if @user.gender == "F"%>
@@ -32,7 +32,7 @@
 	      <th scope="col">Food Name</th>
 	      <th scope="col">Calories</th>
 	      <th scope="col">
-
+	      	<%= link_to raw("<i class=\"icon-search icon-white\">Add </i>"), new_user_food_path, class: "btn btn-success", method: :get %>
 	      </th>
 	    </tr>
 	  </thead>
@@ -41,57 +41,24 @@
 	  	<tr>
 		  	<td><%= link_to food.name, food_path %></td>
 		  	<td><%= food.calories%></td>
-		  	<td><i class="fas fa-pencil-alt"></i><span style="margin-right: 20px"></span><i class="fas fa-trash-alt"></i></td>
+		  	<td>
+			</td>
+			  	
 		</tr>
 		<%end%>
 	  </tbody>
 	</table>
 
 
-<<<<<<< HEAD
+
 	<table id="add-activity-table" class="table" style="margin-bottom: 15px;">
 	  <thead>
 	    <tr>
 	      <th scope="col">Activity Name</th>
 	      <th scope="col">Calories Burned</th>
 	      <th scope="col">
-	      	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">New <i class="fas fa-plus"></i>
-	      	</button>
-<<<<<<< HEAD
+	      	<%= link_to raw("<i class=\"icon-search icon-white\">Add </i>"), new_user_active_path, class: "btn btn-success", method: :get %>
 
-=======
-	      	<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="addActivitLabel">Add new activities</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			        <%=form_for(@user, url:"/users/#{@user.id}") do |f|%>
-					<%= f.fields_for :foods, @user.foods.build do |food| %>
-					<div class="modal-body">
-					      <div><%= food.label :name %>
-					    	<%= food.text_field :name %>
-					      </div>
-					      <br>
-					    <div><%= food.label :calories %>
-					    	 <%= food.number_field :calories %>
-					    </div>
-					    <br>
-					 <% end %>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <div><%=f.submit "Add food", class: "btn btn-primary" %></div>
-			      </div>
-			      <%end%>
-			    </div>
-			  </div>
-			</div>
->>>>>>> 43276202fe64ecd78d0dc25a287c09855d9a6588
 	      </th>
 	    </tr>
 	  </thead>
@@ -100,33 +67,10 @@
 	  	<tr>
 		  	<td><%= link_to activity.name, activity_path %></td>
 		  	<td><%= activity.calories_burned%></td>
-		  	<td><i class="fas fa-pencil-alt"><%= link_to "Add new food", new_user_path %></i><span style="margin-right: 20px"></span><i class="fas fa-trash-alt"><%= link_to "Delete", @activity, method: :delete, data: { confirm: "Are you sure?" } %></i></td>
+		  	<td><i class="fas fa-pencil-alt",><%= link_to "delete", user_food_delete_path %><i class="fas fa-trash-alt"></i></td>
 		</tr>
 		<%end%>
 	  </tbody>
 	</table>
 </div>
-=======
-	<table id="add-activities-table" class="table">
-		  <thead>
-		    <tr>
-		      <th scope="col">Activity Name</th>
-		      <th scope="col">Calories Burned</th>
-		      <th scope="col">
-		      	<button type="button" class="btn btn-secondary btn-sm">New <i class="fas fa-plus"></i></button>
 
-		      </th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		  	<%@user.activities.each do |activity|%>
-		  	<tr>
-			  	<td><%= link_to activity.name, activity_path %></td>
-			  	<td><%= activity.calories_burned%></td>
-			  	<td><i class="fas fa-pencil-alt"></i><span style="margin-right: 20px"></span><i class="fas fa-trash-alt"></i></td>
-			</tr>
-			<%end%>
-		  </tbody>
-		</table>
-	</div>
->>>>>>> d2790432d756137c1a8e4226883428d62796a6fa

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :authorized, only: [:new, :create, :update]
   
   def index
     @users = User.all
