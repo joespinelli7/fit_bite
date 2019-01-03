@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   root to: 'dashboard#index'
   resources :activities
   resources :foods
-  get '/users/:id/food', to: 'users#food'
-  patch '/users/:id/food', to: 'users#add_food'
+  resources :user_foods, only: [:new,:create]
   resources :users
   	get    '/signup',  to: 'users#new'
   	post   '/signup',  to: 'users#create'
