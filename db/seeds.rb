@@ -21,9 +21,9 @@ ash = User.create(first_name: "Ashley",last_name: "Zaki", age: 26, height: 63.0,
 mandy = User.create(first_name: "Mandy",last_name: "Pilaud", age: 25, height: 75.0, weight: 118, gender: "F", email: "mandy234@gmail.com", password: "mandy154321")
 joe = User.create(first_name: "Joe",last_name: "Spinelli", age: 22, height: 74.0, weight: 180, gender: "M", email: "masterjoe@gmail.com", password: "123123123")
 
-lifting = Activity.create(name: "lifting", calories_burned: 500, mins_active: 120)
-running = Activity.create(name: "running", calories_burned: 400, mins_active: 30)
-basketball = Activity.create(name: "basketball", calories_burned: 350, mins_active: 60)
+lifting = Activity.create(name: "lifting", calories_burned: 500)
+running = Activity.create(name: "running", calories_burned: 400)
+basketball = Activity.create(name: "basketball", calories_burned: 350)
 
 UserFood.create(user_id: 1, food_id: 3)
 UserFood.create(user_id: 1, food_id: 4)
