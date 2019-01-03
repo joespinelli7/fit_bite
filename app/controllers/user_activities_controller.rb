@@ -1,4 +1,7 @@
 class UserActivitiesController < ApplicationController
+
+  before_action :authorized, only: [:new, :create, :update]
+  
   def new
     @user_activities = UserActivity.new
   end
@@ -9,6 +12,17 @@ class UserActivitiesController < ApplicationController
     @user_activity.save
     redirect_to user_path(@user_activity.user)
   end
+
+  def edit
+
+  end
+
+  def update
+  end
+
+  def delete
+  end
+
 
   private
   def user_activity_params

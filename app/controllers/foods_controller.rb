@@ -1,4 +1,7 @@
 class FoodsController < ApplicationController
+
+  before_action :authorized, only: [:new, :create, :update]
+
   def index
     @foods = Food.all
     

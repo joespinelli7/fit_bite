@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :authorized, only: [:new, :create, :update]
+  
   def index
     @users = User.all
   end
@@ -35,7 +38,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       # Handle a successful update.
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to profile_path
     else
       render 'edit'
     end

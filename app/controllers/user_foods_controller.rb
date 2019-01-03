@@ -1,4 +1,7 @@
 class UserFoodsController < ApplicationController
+
+  before_action :authorized, only: [:new, :create, :update]
+
   def new
     @user_food = UserFood.new
   end
@@ -8,6 +11,18 @@ class UserFoodsController < ApplicationController
     @user_food.user_id = current_user.id if current_user
     @user_food.save
     redirect_to user_path(@user_food.user)
+  end
+
+  def edit
+
+  end
+
+  def update
+  end
+
+  def destroy
+    @user_food = UserFood.find(params[:id]).destroy
+    redirect_to user_food_path
   end
 
   private
