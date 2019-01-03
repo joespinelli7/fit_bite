@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if @user.user_setting == false || @user != current_user
+      flash[:error] = "ERROR! This profile is private, here is a list of public profiles you can visit"
+      redirect_to users_path
+    end
     daily_goal
     goal
     food_calories
@@ -52,8 +56,10 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path
+    if @user == current_user
+      @user.destroy
+      redirect_to new_user_path
+    end
   end
 
 def daily_goal
@@ -86,7 +92,11 @@ def total_calories_burned
   @total_calories_burned =  @user.user_activities.collect do |user_act|
     (user_act.activity.calories_burned/60) * user_act.mins_active
   end
+  if !@total_calories_burned.empty?
   @total_calories_burned = @total_calories_burned.inject(:+)
+  else
+    @total_calories_burned = 0
+  end
 end
 
 def total_calories
