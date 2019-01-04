@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     delete '/user_foods/:id', to: 'user_foods#destroy', as: 'delete_food'
     get '/user_foods/:id/remove', to: 'user_foods#remove'
   resources :user_activities, only: [:show, :edit, :update, :destroy]
+    delete '/user_activities/:id', to: 'user_activities#destroy', as: 'delete_activity'
     get '/user_activities/new', to: 'user_activities#new', as: 'new_user_active'
     get '/user_activities/:id/remove', to: 'user_activities#remove'
     post '/user_activities', to: 'user_activities#create', as: 'user_active_create'
