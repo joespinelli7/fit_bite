@@ -2,8 +2,3 @@
     <%= submit_tag "Remove #{@user_food.food.name}" %>
 <% end %>
 
-<%= form_tag @user, method: :delete, data: { confirm: "Are you sure? You will lose all your data!" } do %>
-    <%= submit_tag "Remove #{@user.name} permanantly" %>
-<% end %>
-
-<%= link_to "Delete #{@user.name} profile", @user, method: :delete, data: { confirm: "Are you sure? You will lose all your data!" } %>
