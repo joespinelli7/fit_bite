@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :user_foods, only: [:new,:create,:edit,:update]
     delete '/user_foods/:id', to: 'user_foods#destroy', as: 'delete_food'
     get '/user_foods/:id/remove', to: 'user_foods#remove'
-  resources :user_activities, only: [:create,:edit,:update,:destroy]
-  get '/user_activities/new', to: 'user_activities#new', as: 'new_user_active'
-  get '/user_activities/:id/remove', to: 'user_activities#remove'
+  resources :user_activities, only: [:show, :edit, :update, :destroy]
+    get '/user_activities/new', to: 'user_activities#new', as: 'new_user_active'
+    get '/user_activities/:id/remove', to: 'user_activities#remove'
+    post '/user_activities', to: 'user_activities#create', as: 'user_active_create'
   resources :users
   	get    '/signup',  to: 'users#new'
   	post   '/signup',  to: 'users#create'

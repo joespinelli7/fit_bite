@@ -14,8 +14,8 @@ class UsersController < ApplicationController
     total_calories_burned
     total_calories
     calorie_stats
+    # current_calories
   end
-
 
   def profile
      @user = User.find(params[:id])
@@ -96,10 +96,12 @@ class UsersController < ApplicationController
 
 
   def total_calories
-    if !@total_cal.nil?
       @total_cal = @total_food_calories - @total_calories_burned
-    end.to_i
   end
+
+  # def current_calories
+  #   @current_cal = @total_food_calories - @total_calories_burned
+  # end
 
 
 
@@ -108,7 +110,7 @@ class UsersController < ApplicationController
         if @total_cal <= @daily_goal
          @current_calories_message = "You have #{@daily_goal - @total_cal} calories remaining today"
        else
-        @current_calories_message= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"
+         @current_calories_message= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"
        end
      end
     end

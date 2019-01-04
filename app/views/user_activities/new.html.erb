@@ -1,10 +1,19 @@
 <%=form_for(@user_activity) do |f|%>
-<%=f.label "add new activity"%>
-<%=f.collection_select :activity_id, Activity.all, :id, :name, {:prompt => true}%><br>
-<%=f.label :mins_active %>
-<%=f.select :mins_active,options_for_select(20..240) %><br>
- <div><%=f.submit "add activity"%></div>
-<%end%><br>
+<div class="row">
+	<div class="col-md-4">
+		<label>Add New Activity</label>
+			   <%=f.collection_select :activity_id, Activity.all, :id, :name, {:prompt => true}, {:class => 'form-control'}%>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		<label>Minutes Active</label>
+		<%=f.select :mins_active,options_for_select(20..240), {:prompt => true}, {:class => 'form-control'} %>
+	</div>
+</div>
 
-<h4>Don't see the activity you are looking for?<br>
-<%=link_to "Create Activity!", new_activity_path%></h4>
+<div><%=f.submit "Add", class:"btn btn-primary"%></div>
+<%end%>
+<p>Don't see the activity you are looking for? <%= link_to "Create Activity!", new_activity_path %></p>
+
+

@@ -3,7 +3,7 @@
 		<div style="margin-bottom: 15px;">
 			<div class="labels">
 			  <span>Daily Goal</span>
-			  <span><%="#{@daily_goal + @goal}"%> cals</span>
+			  <span><%="#{@total_cal} / #{@daily_goal + @goal}"%> cals</span>
 			</div>
 			<div class="progress">
 			  <div class="progress-bar" style="width: <%= "#{(@total_food_calories - @total_calories_burned).to_f / @daily_goal.to_f * 100}" %>%;">
@@ -12,9 +12,10 @@
 		</div>
 		<div style="margin-bottom: 15px;">
 			<%="Calories eaten: #{@total_food_calories}"%><br>
-			<%="#{@total_calories_burned} calories burned today"%>
+			<%="Calories burned today: #{@total_calories_burned} "%>
 		</div>
-		<div><%=@current_calories_message%></div>
+		<div><%="#{@current_calories_message}"%></div>
+
 <!-- add user_food table-->
 
 	<table id="add-food-table" class="table" style="margin-bottom: 15px;">
@@ -34,8 +35,10 @@
 		  	<td><%= "#{user_food.food.calories}/serving"%></td>
 			<td>
 				<%= link_to "/user_foods/#{user_food.id}/edit", :class => "" do %>
-					<i class="fas fa-pencil-alt"></i>
+					<i class="fas fa-pencil-alt" ></i>
 				<% end %>
+
+
 				<%= link_to "/user_foods/#{user_food.id}/remove", :class => "" do %>
 					<i class="fas fa-trash-alt"></i>
 				<% end %>
@@ -53,7 +56,6 @@
 	      <th scope="col" width="40%">Calories Burned</th>
 	      <th scope="col" width="20%">
 	      	<%= link_to raw("<i class=\"icon-search icon-white\">Add </i>"), new_user_active_path, class: "btn btn-success", method: :get %>
-
 	      </th>
 	    </tr>
 	  </thead>
