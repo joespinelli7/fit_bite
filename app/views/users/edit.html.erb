@@ -49,13 +49,13 @@
 
 		<div class="col-md-4">
 			<label>Goal</label>
-			<%=f.select :goal, [["Weight Gain","weight gain"],["Weight Lose","weight lose"],["
+			<%=f.select :goal, [["Weight Gain","weight gain"],["Weight Loss","weight loss"],["
 					Maintain","maintain"]], {}, {:class => 'form-control'} %>
 		</div>
 
 		<div class="col-md-4">
 	  		<label>Privacy Setting</label>
-	   		 <%=f.select :user_setting, [["Public",true],["Private",false]], {}, {:class => 'form-control'} %>
+	   		 <%=f.select :user_setting, [["Public",true],["Private",false]], {:prompt => true}, {:class => 'form-control'} %>
 	   	</div>
 	</div><br>
 

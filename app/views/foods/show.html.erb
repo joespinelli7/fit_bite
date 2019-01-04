@@ -1,7 +1,5 @@
 <h1><%=@food.name%></h1>
-<div><%="#{@food.calories} Calories"%></div><br>
-
-
-
+<div><%="#{@food.calories} Calories"%></div>
+<%=link_to "Add this food", new_user_food_path%><br>
+<%=link_to "Edit this food", edit_food_path(@food)%>
 <div><%= link_to "Delete", @food, method: :delete, data: { confirm: "Are you sure?" } %></div>
-<%=link_to "Add this food", new_user_food_path%>
