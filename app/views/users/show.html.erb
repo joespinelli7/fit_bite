@@ -1,7 +1,7 @@
 <div style="max-width:1000px; margin: 0 auto;">
 	<h1><%=@user.full_name%></h1>
 	<div style="margin-bottom: 15px;">
-			<%= "Daily Goal: #{@daily_goal + @goal} Calories"%>
+			<%= "Daily Goal: #{@goal} Calories"%>
 		<div>
 	</div>
 			<%="Calories eaten: #{@total_food_calories}"%><br>
@@ -50,7 +50,7 @@
 			<%@user.user_activities.each do |user_act|%>
 	  	<tr>
 		  	<td><%= link_to user_act.activity.name, activity_path(user_act.activity) %></td>
-		  	<td><%= "#{user_act.activity.calories_burned}/hr"%></td>
+		  	<td><%= "#{user_act.activity.calories_burned}/min"%></td>
 		  	<td><i class="fas fa-trash-alt"><%=link_to " REMOVE", "/user_activities/#{user_act.id}/remove"%></i></td>
 				<td><i class= "fas fa-pencil-alt"><%=link_to " EDIT", "/user_activities/#{user_act.id}/edit"%></i></td>
 		</tr>

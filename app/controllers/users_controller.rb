@@ -72,11 +72,11 @@ end
 
 def goal
   if @user.goal == "weight lose"
-    @goal = -500
+    @goal = @daily_goal - 500
   elsif @user.goal == "weight gain"
-    @goal = 5000
+    @goal = @daily_goal+500
   else
-    @goal = 0
+    @goal = @daily_goal
   end
 end
 
@@ -84,13 +84,17 @@ def food_calories
   @total_food_calories = @user.user_foods.collect do |user_food|
     user_food.food.calories * user_food.servings.to_i
   end
+  if !@total_food_calories.empty?
   @total_food_calories = @total_food_calories.inject(:+)
+else
+  @total_food_calories = 0
+end
 end
 
 def total_calories_burned
   #switch in user show page to reflect calories burned per minutes, and servings.
   @total_calories_burned =  @user.user_activities.collect do |user_act|
-    (user_act.activity.calories_burned/60) * user_act.mins_active
+    user_act.activity.calories_burned * user_act.mins_active
   end
   if !@total_calories_burned.empty?
   @total_calories_burned = @total_calories_burned.inject(:+)
@@ -100,18 +104,16 @@ def total_calories_burned
 end
 
 def total_calories
-  if !@total_cal.nil?
     @total_cal = @total_food_calories - @total_calories_burned
-  end
 end
 
 
 def calorie_stats
   if !@total_cal.nil?
-    if @total_cal <= @daily_goal
-     @current_calories_message = "You have #{@daily_goal - @total_cal} calories remaining today"
+    if @total_cal < @daily_goal
+     @current_calories_message = "You have #{@goal - @total_cal} calories remaining today"
    else
-    @current_calories_message= "You have exceeded your daily goal by #{@total_cal - @daily_goal} calories"
+    @current_calories_message= "You have exceeded your daily goal by #{@total_cal - @goal} calories"
    end
  end
 end
