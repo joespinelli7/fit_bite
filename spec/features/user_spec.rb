@@ -17,4 +17,13 @@ describe 'navigate' do
     click_button "Log in"
     expect(page).to have_css("h1", text: "Vlad Lad")
   end
+
+  it 'shows the users name on index page in a h4 tag if public' do
+    visit login_path
+    fill_in 'session[email]', with: "vlad@gmail.com"
+    fill_in 'session[password]', with: "Hello123"
+    click_button "Log in"
+    visit users_path
+    expect(page).to have_css("h4", text: "Vlad Lad")
+  end
 end
