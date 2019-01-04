@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       flash[:error] = "ERROR! This profile is private, here is a list of public profiles you can visit"
       redirect_to users_path
     end
+    food_today
+    activity_today
     daily_goal
     goal
     food_calories
@@ -62,6 +64,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def food_today
+    @food_today = @user.user_foods.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+  end
+
+  def activity_today
+    @activity_today = @user.user_activities.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+  end
+
 def daily_goal
   if @user.gender == "F"
     @daily_goal = 2000
@@ -81,7 +91,7 @@ def goal
 end
 
 def food_calories
-  @total_food_calories = @user.user_foods.collect do |user_food|
+  @total_food_calories = @food_today.collect do |user_food|
     user_food.food.calories * user_food.servings.to_i
   end
   if !@total_food_calories.empty?
@@ -92,8 +102,7 @@ end
 end
 
 def total_calories_burned
-  #switch in user show page to reflect calories burned per minutes, and servings.
-  @total_calories_burned =  @user.user_activities.collect do |user_act|
+  @total_calories_burned =  @activity_today.collect do |user_act|
     user_act.activity.calories_burned * user_act.mins_active
   end
   if !@total_calories_burned.empty?
