@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       flash[:error] = "ERROR! This profile is private, here is a list of public profiles you can visit"
       redirect_to users_path
     end
-    profile
     food_today
     activity_today
     daily_goal
@@ -24,6 +23,10 @@ class UsersController < ApplicationController
   end
 
 
+
+  def profile
+     @user = User.find(params[:id])
+  end
 
   def new
     @user = User.new
@@ -83,7 +86,8 @@ def daily_goal
 end
 
 def goal
-  if @user.goal == "weight lose"
+
+  if @user.goal == "weight loss"
     @goal = @daily_goal - 500
   elsif @user.goal == "weight gain"
     @goal = @daily_goal+500

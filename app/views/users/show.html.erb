@@ -7,15 +7,16 @@
 			  <span><%="#{@total_cal} / #{@goal}"%> cals</span>
 			</div>
 			<div class="progress">
-			  <div class="progress-bar" style="width: <%= "#{(@total_cal).to_f / @daily_goal.to_f * 100}" %>%;">
+
+			  <div class="progress-bar" style="width: <%= "#{(@total_cal).to_f / @goal.to_f * 100}" %>%;">
+
 			  </div>
 			</div>
 		</div>
 		<div style="margin-bottom: 15px;">
 			<%="Calories eaten: #{@total_food_calories}"%><br>
-			<%="Calories burned today: #{@total_calories_burned} "%>
-		</div>
-		<div><%="#{@current_calories_message}"%></div>
+			<%="Calories burned today: #{@total_calories_burned} "%><br>
+		<%="#{@current_calories_message}"%></div>
 
 <!-- add user_food table-->
 
