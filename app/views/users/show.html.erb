@@ -4,10 +4,10 @@
 		<div style="margin-bottom: 15px;">
 			<div class="labels">
 			  <span>Daily Goal</span>
-			  <span><%="#{@total_cal} / #{@daily_goal + @goal}"%> cals</span>
+			  <span><%="#{@total_cal} / #{@goal}"%> cals</span>
 			</div>
 			<div class="progress">
-			  <div class="progress-bar" style="width: <%= "#{(@total_food_calories - @total_calories_burned).to_f / @daily_goal.to_f * 100}" %>%;">
+			  <div class="progress-bar" style="width: <%= "#{(@total_cal).to_f / @goal.to_f * 100}" %>%;">
 			  </div>
 			</div>
 		</div>
