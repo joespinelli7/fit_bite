@@ -81,7 +81,7 @@ def daily_goal
 end
 
 def goal
-  if @user.goal == "weight lose"
+  if @user.goal == "weight loss"
     @goal = @daily_goal - 500
   elsif @user.goal == "weight gain"
     @goal = @daily_goal+500
