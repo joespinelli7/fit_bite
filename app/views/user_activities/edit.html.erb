@@ -1,7 +1,16 @@
 <%=form_for(@user_activity) do |f|%>
-<%=f.label "Edit activity"%>
-<%=f.collection_select :activity_id, Activity.all, :id, :name, {:prompt => true}%><br>
-<%=f.label :mins_active %>
-<%=f.select :mins_active,options_for_select(20..240) %><br>
- <div><%=f.submit "Edit #{@user_activity.activity.name}"%></div>
-<%end%><br>
+<div class="row">
+	<div class="col-md-4">
+		<label>Add New Activity</label>
+			   <%=f.collection_select :activity_id, Activity.all, :id, :name, {:prompt => true}, {:class => 'form-control'}%>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		<label>Minutes Active</label>
+		<%=f.select :mins_active,options_for_select(20..240), {:prompt => true}, {:class => 'form-control'} %>
+	</div>
+</div>
+
+<div><%=f.submit "Edit #{@user_activity.activity.name}", class:"btn btn-primary"%></div>
+<%end%>

@@ -1,9 +1,13 @@
 class UserActivitiesController < ApplicationController
 
-  before_action :authorized, only: [:new, :create,:edit,:update,:remove,:destroy]
+  before_action :authorized, only: [:new, :show, :create, :edit, :update, :remove, :destroy]
 
   def new
     @user_activity = UserActivity.new
+  end
+
+  def show
+    @user_activity = UserActivity.find(params[:id])
   end
 
   def create
