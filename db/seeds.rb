@@ -17,9 +17,9 @@ ice_cream = Food.create(name: "Ice Cream", calories: 500)
 chicken = Food.create(name: "Chicken", calories: 600)
 apple = Food.create(name: "Apple", calories: 100)
 
-ash = User.create(first_name: "Ashley",last_name: "Zaki", age: 26, height: 63.0, weight: 125, gender: "F", email: "ash057@gmail.com", password: "ash1234567", goal: "maintain")
-mandy = User.create(first_name: "Mandy",last_name: "Pilaud", age: 25, height: 75.0, weight: 118, gender: "F", email: "mandy234@gmail.com", password: "mandy154321",goal: "weight loss")
-joe = User.create(first_name: "Joe",last_name: "Spinelli", age: 22, height: 74.0, weight: 180, gender: "M", email: "masterjoe@gmail.com", password: "123123123",goal: "weight gain")
+ash = User.create(first_name: "Ashley",last_name: "Zaki", age: 26, height: 63.0, weight: 125, gender: "F", email: "ash057@gmail.com", password: "ash1234567", goal: "maintain",user_setting: false)
+mandy = User.create(first_name: "Mandy",last_name: "Pilaud", age: 25, height: 75.0, weight: 118, gender: "F", email: "mandy234@gmail.com", password: "mandy154321",goal: "weight loss",user_setting: true)
+joe = User.create(first_name: "Joe",last_name: "Spinelli", age: 22, height: 74.0, weight: 180, gender: "M", email: "masterjoe@gmail.com", password: "123123123",goal: "weight gain",user_setting: true)
 
 lifting = Activity.create(name: "lifting", calories_burned: 3)
 running = Activity.create(name: "running", calories_burned: 10)

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.user_setting == false || @user != current_user
+    if @user.user_setting == false && @user != current_user
       flash[:error] = "ERROR! This profile is private, here is a list of public profiles you can visit"
       redirect_to users_path
     end
