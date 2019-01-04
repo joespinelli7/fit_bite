@@ -11,7 +11,7 @@
           <li class="nav-item active">
             <!-- <a class="nav-link" href="#">Home</a> -->
             <li><%= link_to "Sign up", new_user_path, {:class=>"nav-link"} %></li>
-
+            <li><%= link_to "Home", users_path, {:class=>"nav-link"} %></li>
           <% if logged_in? %>
             <%= link_to "Dashboard", current_user, {:class=>"nav-link"} %>
           </li>
@@ -21,7 +21,8 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", profile_path(current_user), {:class=>"nav-link"} %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user), {:class=>"nav-link"} %></li>
+                <li><%= link_to "Settings", edit_user_path(current_user), {:class=>"nav-link"} %></li> 
+                <%= link_to "Delete #{current_user.first_name}", current_user, method: :delete, data: { confirm: "Are you sure? You will lose all your data permanantly!" } %>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Log out", logout_path, method: :delete, :class=>"nav-link" %>

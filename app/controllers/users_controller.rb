@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
 
+
   def profile
      @user = User.find(params[:id])
   end
@@ -39,6 +40,10 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def profile
+     @user = User.find(params[:id])
   end
 
   def edit
@@ -81,6 +86,7 @@ def daily_goal
 end
 
 def goal
+
   if @user.goal == "weight loss"
     @goal = @daily_goal - 500
   elsif @user.goal == "weight gain"
